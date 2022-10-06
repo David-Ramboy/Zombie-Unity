@@ -10,6 +10,8 @@ public class Monster : MonoBehaviour
 
     private Rigidbody2D myBody;
 
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,7 +22,6 @@ public class Monster : MonoBehaviour
     void FixedUpdate()
     {
         // velocity forces the character to move left and right/ up and down
-        
         // speed param is to be able to push player to move and myBody.velocity.y to move left and right because of Y-axis
         myBody.velocity = new Vector2(speed, myBody.velocity.y);
     }

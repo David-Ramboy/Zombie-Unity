@@ -22,6 +22,11 @@ public class MonsterSpawner : MonoBehaviour
         StartCoroutine(spawnMonsters()); 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
+
     IEnumerator spawnMonsters()
     {
         // spawn it forever
@@ -30,6 +35,7 @@ public class MonsterSpawner : MonoBehaviour
             //random time when enemy will respawn
             // yield is the stopper or waiter of while loop because a courotine needs to wait
             yield return new WaitForSeconds(Random.Range(1, 5));
+
 
 
             randomIndex = Random.Range(0, monsterReference.Length);

@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         movementX = Input.GetAxis("Horizontal");
         // deltaTime is basing to the Time of each Frame
         transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
-       
+
     }
 
     void AnimatePlayer()
@@ -77,9 +77,6 @@ public class Player : MonoBehaviour
         {
             anim.SetBool(WALK_ANIMATION, true);
             sr.flipX = false;
-            
-
-
         }
         else if(movementX < 0){
             anim.SetBool(WALK_ANIMATION, true);

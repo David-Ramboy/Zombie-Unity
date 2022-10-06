@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2079636733752326488}
   - component: {fileID: 2079636733752326490}
   - component: {fileID: 8931563695171237513}
-  - component: {fileID: 4366098546209881166}
+  - component: {fileID: 3252348636845301355}
   m_Layer: 6
   m_Name: Enemy 2
   m_TagString: Enemy
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
---- !u!70 &4366098546209881166
+--- !u!70 &3252348636845301355
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,6 +152,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16627091, y: 0}
-  m_Size: {x: 0.8217268, y: 2.1100001}
+  m_Offset: {x: -0.16287768, y: 0}
+  m_Size: {x: 0.80136716, y: 2.11}
   m_Direction: 0

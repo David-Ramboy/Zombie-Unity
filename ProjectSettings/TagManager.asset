@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Zombie
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3680771759
+    locked: 0
+  - name: UI
+    uniqueID: 3430257917
     locked: 0
