@@ -26,6 +26,13 @@ public class Player : MonoBehaviour
     private string GROUND_TAG = "Ground";
 
     private string ENEMY_TAG = "Enemy";
+    public bool isMove = true;
+    //- ------------------------- Updating
+
+    bool isHurting;
+    public bool facingRight = true;
+    public delegate bool Died();
+    public static Died died;
 
     private void Awake()
     {
@@ -60,13 +67,17 @@ public class Player : MonoBehaviour
 
     }
 
-    void PlayerMoveKeyboard()
+    public void PlayerMoveKeyboard()
     {
-        //Function for User Input
-        // the position where key click if right or left
-        movementX = Input.GetAxis("Horizontal");
-        // deltaTime is basing to the Time of each Frame
-        transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
+        if (died())
+        {
+            //Function for User Input
+            // the position where key click if right or left
+            movementX = Input.GetAxis("Horizontal");
+            // deltaTime is basing to the Time of each Frame
+            transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
+        }
+       
 
     }
 
@@ -77,11 +88,13 @@ public class Player : MonoBehaviour
         {
             anim.SetBool(WALK_ANIMATION, true);
             sr.flipX = false;
+            facingRight = true;
         }
         else if(movementX < 0){
             anim.SetBool(WALK_ANIMATION, true);
 
             sr.flipX = true;
+            facingRight = false;
         }
         else
         {
@@ -109,7 +122,8 @@ public class Player : MonoBehaviour
             isGrounded = true;
 
         if (collision.gameObject.CompareTag(ENEMY_TAG))
-            Destroy(gameObject);
+            StartCoroutine("Hurt");
+        //Destroy(gameObject);
 
 
     }
@@ -117,6 +131,24 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(ENEMY_TAG))
-            Destroy(gameObject);
+            StartCoroutine("Hurt");
+        //Destroy(gameObject);
     }
-}
+    IEnumerator Hurt()
+    {
+        isHurting = true;
+        myBody.velocity = Vector2.zero;
+
+        if (facingRight)
+        {
+            myBody.AddForce(new Vector2(-200f, 200f));
+        }
+        else
+        {
+            myBody.AddForce(new Vector2(200f, 200f));
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        isHurting = false;
+     }
+   }

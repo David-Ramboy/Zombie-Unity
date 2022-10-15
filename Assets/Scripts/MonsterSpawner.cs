@@ -16,6 +16,9 @@ public class MonsterSpawner : MonoBehaviour
 
     private int randomIndex;
     private int randomSide;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +52,12 @@ public class MonsterSpawner : MonoBehaviour
             {
                 // set the spawnedMoster position into the left
                 spawnedMonster.transform.position = leftPos.position;
-                spawnedMonster.GetComponent<Monster>().speed = Random.Range(4, 10);
+                spawnedMonster.GetComponent<Monster>().speed = Random.Range(2, 5);
             }
             else
             {
                 spawnedMonster.transform.position = rightPos.position;
-                spawnedMonster.GetComponent<Monster>().speed = -Random.Range(4, 10);
+                spawnedMonster.GetComponent<Monster>().speed = -Random.Range(2, 5);
                 spawnedMonster.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
